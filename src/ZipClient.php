@@ -14,6 +14,23 @@ use Throwable;
 
 class ZipClient
 {
+    public static function tranform($jobs)
+    {
+        array_map(function (){
+            
+        });
+        $finals = [];
+
+        $path = '';
+
+        $urls = [];
+
+        $finals[] = [
+            'path'  => $path,
+            'files' => $urls,
+        ];
+    }
+
     /**
      * @param array $jobs
      * @return mixed
@@ -41,6 +58,7 @@ class ZipClient
 
         } catch (Throwable $exception) {
             //todo
+            dd($exception);
         }
 
         return $task_id;
