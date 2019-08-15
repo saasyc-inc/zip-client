@@ -1,0 +1,27 @@
+{
+    "name": "yiche/zip-client",
+    "authors": [
+        {
+            "name": "杨益民",
+            "email": "744541711@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.0",
+        "yiche/simple-request": "^4.0",
+        "yiche/config": "^1.0",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "ZipClient\\": "src/"
+        }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "ZipClient\\ZipClientServiceProvider"
+        ]
+      }
+    }
+}

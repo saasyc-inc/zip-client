@@ -37,8 +37,10 @@ class ZipClientConfig
 
     public static function get_domain()
     {
-        $key = 'domain';
-
-        return Functions::config($key);
+        //todo
+//        $key = 'domain';
+//
+//        return Functions::config($key);
+        return ZipClientConfigSpecific::get_domain();
     }
 }

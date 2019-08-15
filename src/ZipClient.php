@@ -11,30 +11,16 @@ namespace ZipClient;
 
 use SimpleRequest\SimpleRequest;
 use Throwable;
+use ZipClient\Exceptions\DownloadFailException;
+use ZipClient\Exceptions\ParseRequestResponseException;
 
 class ZipClient
 {
-    public static function tranform($jobs)
-    {
-        array_map(function (){
-            
-        });
-        $finals = [];
-
-        $path = '';
-
-        $urls = [];
-
-        $finals[] = [
-            'path'  => $path,
-            'files' => $urls,
-        ];
-    }
-
     /**
      * @param array $jobs
      * @return mixed
      * @throws \SimpleRequest\Exceptions\FailRequestException
+     * @throws DownloadFailException
      */
     public static function download(array $jobs)
     {
@@ -57,8 +43,7 @@ class ZipClient
             ] = $info;
 
         } catch (Throwable $exception) {
-            //todo
-            dd($exception);
+            throw new DownloadFailException();
         }
 
         return $task_id;
@@ -68,6 +53,7 @@ class ZipClient
      * @param $task_id
      * @return string
      * @throws \SimpleRequest\Exceptions\FailRequestException
+     * @throws ParseRequestResponseException
      */
     public static function get_generated_url($task_id) : string
     {
@@ -89,7 +75,7 @@ class ZipClient
                 ],
             ] = $info;
         } catch (Throwable $exception) {
-            //todo
+            throw new ParseRequestResponseException($info);
         }
 
         return $url;
