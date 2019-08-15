@@ -25,7 +25,7 @@ class ZipClientServiceProvider extends \Illuminate\Support\ServiceProvider
     public function boot()
     {
         $config_path =
-            sprintf('%s/%s', __DIR__, 'zip.php');
+            sprintf('%s/config/%s', __DIR__, 'zip.php');
 
         $this->publishes([
             $config_path => config_path('zip.php'),

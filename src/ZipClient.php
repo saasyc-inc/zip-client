@@ -22,13 +22,17 @@ class ZipClient
      * @throws \SimpleRequest\Exceptions\FailRequestException
      * @throws DownloadFailException
      */
-    public static function download(array $jobs)
+    public static function download($token, array $jobs)
     {
         $illumination = '请求压缩生成压缩包';
 
-        $complete_url = ZipClientConfig::get_ask_for_zip_url_path();
+        $complete_url = ZipClientConfig::get_generate_task_url();
 
-        $params = $jobs;
+        $params = array_merge(
+            $jobs, [
+                'accessToken' => $token,
+            ]
+        );
 
         $info = SimpleRequest::json_post($illumination, $complete_url, $params);
 
@@ -55,17 +59,18 @@ class ZipClient
      * @throws \SimpleRequest\Exceptions\FailRequestException
      * @throws ParseRequestResponseException
      */
-    public static function get_generated_url($task_id) : string
+    public static function get_generated_url($token, $task_id) : string
     {
         $illumination = '请求压缩生成压缩包';
 
-        $complete_url = ZipClientConfig::get_generate_task_url();
+        $complete_url = ZipClientConfig::get_ask_for_zip_url_path();
 
         $params = [
             'task_id' => $task_id,
+            'accessToken' => $token,
         ];
 
-        $info = SimpleRequest::json_post($illumination, $complete_url, $params);
+        $info = SimpleRequest::json_get($illumination, $complete_url, $params);
 
         try {
 

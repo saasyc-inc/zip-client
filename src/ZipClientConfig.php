@@ -32,6 +32,8 @@ class ZipClientConfig
 
         $path = Functions::config($key);
 
+        $domain = trim($domain,'/');
+        
         return sprintf("%s/%s", $domain, $path);
     }
 

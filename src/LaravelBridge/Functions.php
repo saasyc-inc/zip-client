@@ -13,7 +13,7 @@ class Functions
     public static function config($key)
     {
         return config(
-            sprintf('apollo.apollo.%s', $key)
+            sprintf('zip.%s', $key)
         );
     }
 }

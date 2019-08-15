@@ -21,8 +21,6 @@ class ZipClientConfigSpecific
 //        try {
         $info = SapiConfig::getConfigValue($config_key);
 
-        $info = json_decode($info, true);
-
         [
             'url' => $url,
         ] = $info;

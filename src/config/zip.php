@@ -9,10 +9,8 @@
 
 return [
     //生成任务的地址
-    'generate_task_path'   => 'tarball/index/compression',
+    'generate_task_path'   => 'tarball/index/tarball',
     //获取生成任务的zip的地址
     'ask_for_zip_url_path' => 'tarball/index/compression',
-    //请求域名
-    'domain'               => '',
 ];
 
