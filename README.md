@@ -5,11 +5,10 @@
 
 #####  调用示例
 
+        提供两个方法
+#####  创建下载任务
 ```
 
-        提供两个方法
-        
-        创建下载任务
         
         $path = '/age';
         
@@ -33,12 +32,11 @@
         
 ```
 
+#####  返回任务生成的地址
+
 ```
         
-         创建下载任务 
-        
-         $task_id = $this->download();
-        
+         
          $token = self::TOKEN;
         
          $url = ZipClient::get_generated_url($token, $task_id); // 返回 下载完成后生成的地址　或者　空字符串
