@@ -27,7 +27,7 @@
         ];
         $token = self::TOKEN;
         
-        $task_id = ZipClient::download($token, $jobs);
+        $task_id = ZipClient::download($token, $jobs);  //返回　下载任务id
         
         $this->assertTrue(is_int($task_id));
         
@@ -41,7 +41,7 @@
         
          $token = self::TOKEN;
         
-         $url = ZipClient::get_generated_url($token, $task_id);
+         $url = ZipClient::get_generated_url($token, $task_id); // 返回 下载完成后生成的地址　或者　空字符串
         
          $this->assertTrue(is_string($url));
 ```
